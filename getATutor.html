@@ -105,22 +105,19 @@
             <div id="studentsContainer">
                 <div class="student-section">
                     <input type="text" name="name[]" placeholder="Enter student's full name" required>
-                    <select name="subject[]" required>
-                        <option value="">Select a subject</option>
-                        <option value="math">Math</option>
-                        <option value="science">Science</option>
-                        <option value="english">English</option>
-                        <option value="history">History</option>
-                    </select>
+                    <input type="text" name="subject[]" placeholder="Enter subject to be tutored" required>
                     <select name="curriculum[]" required>
                         <option value="">Select a curriculum</option>
                         <option value="caps">CAPS</option>
                         <option value="ieb">IEB</option>
                         <option value="cambridge">CAMBRIDGE</option>
+                        <option value="post-matric">N-Levels</option>
                         <option value="university">University Course</option>
                     </select>
                     <select name="grade[]" required>
                         <option value="">Select a grade</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
                         <option value="3">Grade 3</option>
                         <option value="4">Grade 4</option>
                         <option value="5">Grade 5</option>
@@ -131,6 +128,8 @@
                         <option value="10">Grade 10</option>
                         <option value="11">Grade 11</option>
                         <option value="12">Grade 12</option>
+                        <option value="post-matric">N-Levels</option>
+                        <option value="university">University Courses</option>
                     </select>
                     <textarea name="details[]" rows="4" placeholder="Provide specific requirements..."></textarea>
                 </div>
@@ -150,22 +149,19 @@
             studentSection.innerHTML = `
                 <button type="button" class="close-button" onclick="removeStudent(this)">×</button>
                 <input type="text" name="name[]" placeholder="Enter student's full name" required>
-                <select name="subject[]" required>
-                    <option value="">Select a subject</option>
-                    <option value="math">Math</option>
-                    <option value="science">Science</option>
-                    <option value="english">English</option>
-                    <option value="history">History</option>
-                </select>
+                <input type="text" name="subject[]" placeholder="Enter subject to be tutored" required>
                 <select name="curriculum[]" required>
                     <option value="">Select a curriculum</option>
                     <option value="caps">CAPS</option>
                     <option value="ieb">IEB</option>
                     <option value="cambridge">CAMBRIDGE</option>
+                    <option value="post-matric">N-Levels</option>
                     <option value="university">University Course</option>
                 </select>
                 <select name="grade[]" required>
                     <option value="">Select a grade</option>
+                    <option value="1">Grade 1</option>
+                    <option value="2">Grade 2</option>
                     <option value="3">Grade 3</option>
                     <option value="4">Grade 4</option>
                     <option value="5">Grade 5</option>
@@ -176,6 +172,8 @@
                     <option value="10">Grade 10</option>
                     <option value="11">Grade 11</option>
                     <option value="12">Grade 12</option>
+                    <option value="post-matric">N-Levels</option>
+                    <option value="university">University Courses</option>
                 </select>
                 <textarea name="details[]" rows="4" placeholder="Provide specific requirements..."></textarea>
             `;
