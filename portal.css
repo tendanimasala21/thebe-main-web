@@ -1,0 +1,189 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFF0DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #FF9D23;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.close-button:hover {
+    background: #d96b00;
+}
+
+/* Portal Container */
+.portal-container {
+    position: relative;
+    background: #fff;
+    padding: 30px; /* Increased padding */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+    max-width: 1100px; /* Increased width */
+    width: 100%;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* More spacing between sections */
+}
+
+/* Image and Quote Section */
+.image-quote {
+    flex: 1;
+    text-align: left;
+}
+
+.image-quote h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.image-quote h1:hover {
+    color: #FF9D23;
+    text-decoration: underline;
+    text-decoration-color: #FF9D23;
+}
+
+.inspiring-image {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+}
+
+/* Hover Effect for Portal Access */
+.hover-effect {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.hover-effect:hover {
+    color: #FF9D23;
+    text-decoration: underline;
+    text-decoration-color: #FF9D23;
+}
+
+/* Logo Section */
+.logo {
+    margin-bottom: 30px; /* Add some space below */
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+    align-items: center; /* Center the logo vertically */
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto; /* Ensure the aspect ratio is maintained */
+    max-height: 180px; /* Adjust the size of the logo */
+}
+
+/* Text Content Section */
+.text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.text-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 10px 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #FF9D23;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn span {
+    display: inline-block;
+    letter-spacing: -2px;
+    opacity: 0;
+    animation: letterSpace 1.5s ease-out forwards;
+}
+
+/* Hover Effect */
+.btn:hover {
+    background-color: #DF6D2D;
+}
+
+@keyframes letterSpace {
+    0% {
+        letter-spacing: -2px;
+        opacity: 0;
+    }
+    100% {
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .text-content {
+        text-align: center;
+    }
+
+    .close-button {
+        top: 20px;
+    }
+}

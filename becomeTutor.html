@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Tutor</title>
+    <link rel="shortcut icon" href="images/title.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF0DC;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            color: #000;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        h1:hover, h2:hover, h3:hover {
+            color: #FF9D23;
+        }
+
+        .why-join {
+            position: relative;
+            padding: 20px;
+            background: #FF9D23;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .why-join ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .why-join li {
+            padding: 5px 0;
+        }
+
+        .why-join h2:hover {
+            color: black;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF9D23;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+            padding: 0;
+        }
+
+        .close-button:hover {
+            background: #d96b00;
+        }
+
+        .apply-now {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #FF9D23;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #DF6D2D;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea, button {
+            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #FF9D23;
+        }
+
+        button {
+            background-color: #FF9D23;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #DF6D2D;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="uniqueFeatures">
+        <button class="close-button" onclick="goBack()">×</button>
+        <h1>Become a Tutor</h1>
+        <p>Join Thebe Tutors and Make a Difference!</p>
+        <p>Become a tutor and help students unlock their full potential. Whether you specialize in mathematics, sciences, business studies, or languages, we provide you with the platform to share your expertise and inspire learners.</p>
+
+        <div class="why-join">
+            <h2>Why Join Thebe Tutors?</h2>
+            <ul>
+                <li><strong>Flexible Scheduling</strong> – Choose your own hours and work at your convenience.</li>
+                <li><strong>Competitive Pay</strong> – Get compensated for your expertise and time.</li>
+                <li><strong>Supportive Community</strong> – Join a network of passionate tutors and educators.</li>
+                <li><strong>Impact Lives</strong> – Help learners excel in their studies and achieve academic success.</li>
+            </ul>
+        </div>
+
+        <div class="apply-now">
+            <h2>Apply Now</h2>
+            <p>Take the first step towards making a difference in students' lives. Apply today and become part of Thebe Tutors!</p>
+            <button class="cta-button" onclick="showForm()" aria-label="Get Started to Apply as a Tutor">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Hidden Form -->
+    <div class="container form-container" id="tutorFormContainer">
+        <button class="close-button" onclick="closeForm()">×</button>
+        <h2>Become a Tutor</h2>
+        <p>Fill in the form below to join Thebe Tutors.</p>
+        <form id="tutorForm" enctype="multipart/form-data">
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="tel" id="cellphone" name="cellphone" placeholder="Enter your cellphone number" required>
+        
+            <!-- File Upload Fields -->
+            <label for="cv">Upload CV (PDF or DOC):</label>
+            <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx" required>
+
+            <label for="qualification">Upload Academic Transcript (PDF or Image):</label>
+            <input type="file" id="qualification" name="qualification" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <label for="profilePicture">Upload Recent Picture (JPG or PNG):</label>
+            <input type="file" id="profilePicture" name="profilePicture" accept=".jpg, .jpeg, .png" required>
+
+            <textarea id="experience" name="experience" rows="4" placeholder="Describe your tutoring experience..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div class="success-message" id="successMessage">
+            Your application has been submitted successfully! We will get back to you soon.
+        </div>
+    </div>
+
+    <script>
+        function showForm() {
+            document.getElementById('tutorFormContainer').style.display = 'block';
+        }
+
+        function closeForm() {
+            document.getElementById('tutorFormContainer').style.display = 'none';
+        }
+
+        function closeUniqueFeatures() {
+            document.getElementById('uniqueFeatures').style.display = 'none';
+        }
+
+        document.getElementById('tutorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Simulate form submission success
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Clear the form
+            event.target.reset();
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

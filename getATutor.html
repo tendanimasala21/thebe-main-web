@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Tutor</title>
+    <link rel="shortcut icon" href="images/title.png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF0DC;
+        }
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            color: #000;
+            text-align: center;
+        }
+        .student-section {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .remove-student {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF4D4D;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input, textarea, button, select {
+            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #FF9D23;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #DF6D2D;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF9D23;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+            padding: 0;
+        }
+
+        .close-button:hover {
+            background: #d96b00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Get a Tutor</h1>
+        <p>Fill in the form below, and we'll match you with the perfect tutor for your needs.</p>
+        <button class="close-button" onclick="goBack()">×</button>
+        <form id="tutorForm">
+            <div id="studentsContainer">
+                <div class="student-section">
+                    <input type="text" name="name[]" placeholder="Enter student's full name" required>
+                    <select name="subject[]" required>
+                        <option value="">Select a subject</option>
+                        <option value="math">Math</option>
+                        <option value="science">Science</option>
+                        <option value="english">English</option>
+                        <option value="history">History</option>
+                    </select>
+                    <select name="curriculum[]" required>
+                        <option value="">Select a curriculum</option>
+                        <option value="caps">CAPS</option>
+                        <option value="ieb">IEB</option>
+                        <option value="cambridge">CAMBRIDGE</option>
+                        <option value="university">University Course</option>
+                    </select>
+                    <select name="grade[]" required>
+                        <option value="">Select a grade</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                    <textarea name="details[]" rows="4" placeholder="Provide specific requirements..."></textarea>
+                </div>
+            </div>
+            <button type="button" onclick="addStudent()">+ Add Another Student</button>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="tel" name="cellphone" placeholder="Enter your cellphone number" pattern="^[0-9+\-\s]*$" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="success-message" id="successMessage">Your request has been submitted successfully!</div>
+    </div>
+    <script>
+        function addStudent() {
+            const container = document.getElementById('studentsContainer');
+            const studentSection = document.createElement('div');
+            studentSection.classList.add('student-section');
+            studentSection.innerHTML = `
+                <button type="button" class="close-button" onclick="removeStudent(this)">×</button>
+                <input type="text" name="name[]" placeholder="Enter student's full name" required>
+                <select name="subject[]" required>
+                    <option value="">Select a subject</option>
+                    <option value="math">Math</option>
+                    <option value="science">Science</option>
+                    <option value="english">English</option>
+                    <option value="history">History</option>
+                </select>
+                <select name="curriculum[]" required>
+                    <option value="">Select a curriculum</option>
+                    <option value="caps">CAPS</option>
+                    <option value="ieb">IEB</option>
+                    <option value="cambridge">CAMBRIDGE</option>
+                    <option value="university">University Course</option>
+                </select>
+                <select name="grade[]" required>
+                    <option value="">Select a grade</option>
+                    <option value="3">Grade 3</option>
+                    <option value="4">Grade 4</option>
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+                <textarea name="details[]" rows="4" placeholder="Provide specific requirements..."></textarea>
+            `;
+            container.appendChild(studentSection);
+        }
+        function removeStudent(button) {
+            button.parentElement.remove();
+        }
+        document.getElementById('tutorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('successMessage').style.display = 'block';
+            event.target.reset();
+        });
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
